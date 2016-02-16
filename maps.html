@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta keyword="clicktime,googlemaps,googleapi,getjob,maps">
+    <meta charset="utf-8">
+    <title>Route To ClickTime Office</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: grey;
+
+        }
+        #map {
+            background-color: grey;
+            height: 100%;
+        }
+        #floating-panel {
+            position: absolute;
+            top: 10px;
+            left: 1%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            color: orangered;
+            padding-left: 10px;
+        }
+
+        #right-panel {
+            font-family: 'Roboto','sans-serif';
+            line-height: 15px;
+            padding-left: 10px;
+            font-size: 10px;
+            
+        }
+
+        #right-panel select, #right-panel input {
+            font-size: 10px;
+
+            
+        }
+
+        #right-panel select {
+            width: 100%;
+
+        }
+
+        #right-panel i {
+            font-size: 10px;
+
+        }
+
+        #right-panel {
+            height: 100%;
+            float: right;
+            width: 220px;
+            overflow: auto;
+        }
+
+
+
+        #map {
+            margin-right: 200px;
+            margin-left: 200px;
+        }
+
+        #floating-panel {
+            background: ghostwhite;
+            padding: 5px;
+            opacity: 2;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: Arial;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+            display: none;
+        }
+
+        @media print {
+            #map {
+                height: 500px;
+                margin: 0;
+            }
+
+            #right-panel {
+                float: none;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="floating-panel">
+    <strong>Start:</strong> My Location
+    <br>
+    <strong>End:</strong> <input type="text" id="end"/>
+    <br/>
+    <b>Mode: </b>
+    <select id="mode">
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Bicycling</option>
+        <option value="TRANSIT">Public</option>
+    </select>
+
+    <input type="button" id="submitId" value="Get"/>
+    <div id="errorId" style="display: none;"></div>
+</div>
+<div id="right-panel"></div>
+<div id="map"></div>
+<script>
+    var map;
+    function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: {lat: 41.85, lng: -87.65},
+            disableDefaultUI: false
+        });
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
+        document.getElementById('right-panel').setAttribute('display', false);
+
+        var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+        //map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+        var onChangeHandler = function() {
+            if(document.getElementById("end").value.trim() == "") {
+                document.getElementById("errorId").style = 'block';
+                document.getElementById("errorId").innerHTML = '<span style="color:orangered">Please Enter Destination</span>';
+            } else {
+                document.getElementById("errorId").style = 'none';
+                document.getElementById("errorId").innerHTML="";
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            }
+        };
+        document.getElementById('submitId').addEventListener('click', onChangeHandler);
+        myLoacation();
+    }
+
+    function myLoacation() {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: 'Me'
+                });
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var end = document.getElementById('end').value;
+        ////////////
+        document.getElementById("errorId").style = 'block';
+        document.getElementById("errorId").innerHTML = '<span style="color:blueviolet">Searching ...</span>';
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            directionsService.route({
+                origin: pos,
+                destination: end,
+                travelMode: document.getElementById("mode").value
+            }, function(response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    document.getElementById("errorId").style = 'none';
+                    document.getElementById("errorId").innerHTML = '';
+                    directionsDisplay.setDirections(response);
+                } else {
+                    directionsDisplay.setDirections({geocoded_waypoints: [], routes: [], status: "OK", request: null});
+
+                    document.getElementById("errorId").innerHTML = '<span style="color:orangered">No result found</span>';
+                }
+            });
+
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+
+    }
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbMt2D9iDdjhmMAno_YYKVWMmBMSOuTQ&signed_in=true&callback=initMap"
+        async defer></script>
+</body>
+</html>
