@@ -43,7 +43,7 @@
             <label class="col-md-2">Position: </label>
             <label class="col-md-4">
                 <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button"  data-toggle="dropdown">Select One
+                <button class="btn btn-primary dropdown-toggle" type="button"  data-toggle="dropdown" style="position: absolute;width: 150px">Select One
                 <span class="caret">    </span></button>
                 <ul class="dropdown-menu">
                     <li>XYZ</li>
@@ -119,6 +119,25 @@
     <button type="submit"  class="btn btn-default center-block col-md-6" style="margin-left: 25%;margin-bottom: 25px">Save</button>
 
     </form>
+
+<script>
+
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS RegisterDB (Firstname, Company,Lastname,Website,Email,Position,Password,Phone,Interest,Strategy,Design,Networking,Campaigns,Emailmarketing,Software,Solution)');
+
+    });
+    function CreateDB()
+    {
+        db.transaction(function (tx) {
+
+            tx.executeSql('INSERT INTO RegisterDB (Firstname,Company,Lastname,Website,Email,Position,Password,Phone,Interest,Strategy,Design,Networking,Campaigns,Emailmarketing,Software,Solution) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [document.myForm.firstname.value, document.myForm.company_name.value, document.myForm.lastname.value, document.myForm.website.value, document.myForm.email.value, document.myForm.position.value, document.myForm.pass.value, document.myForm.phone.value, document.myForm.services.value
+                , document.myForm.solution.value]);
+        });
+    }
+</script>
+</body>
 
 </body>
 </html>
