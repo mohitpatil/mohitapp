@@ -1,71 +1,51 @@
-<!DOCTYPE html>
+﻿
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Index Page</title>
-</head>
-<body>
-<h1>Multi-Device Website</h1>
-<p>
-From smartphones to tablets to everything in between, a wider variety of 
-computing devices than ever before are being used to get online. 
-These devices have different screen sizes and resolutions, input methods, 
-and even different modes of use. Most organizations have responded to 
-this new reality by creating separate experiences for new devices types: 
-a separate mobile site, a separate tablet site, and so on. But todayâ€™s 
-devices are blurring even these lines.
-</p>
-<br />
-<br />
-<img src="logo.gif" height="200" width="200" alt="NPU Logo....."> 
-<br />
-<br />
-<br />
-<a href=" http://npu.edu">Link To NPU Website</a>
-<br />
-<br />
-HTML formatting Tags:
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+      </script>
+  </script>
+<script>
+    $(document).ready(function(){
+      $("#button3").click(function(){
 
-<br />
-<b>Hello World..!!</b>
-<br />
-<br />
-<i>Hello World..!!</i>
-<br />
-<br />
-<em>Hello World..!!</em>
-<br />
-<br />
-<strong>Hello World..!!</strong>
-<br />
-<br />
-<small>Hello World..!!</small>
-<br />
-<br />
-<mark>Hello World..!!</mark>
-<br />
-<br />
-<del>Hello World..!!</del>
-<br />
-<br />
-<ins>Hello World..!!</ins>
-<br />
-<br />
-<sub>Hello World..!!</sub>
-<br />
-<br />
-<sup>Hello World..!!</sup>
-<br />
-<br />
-<h1>Click Below For Table Link:</h1>
-<br />
-<br />
-<a href="table.html">Click For Table</a>
-<br />
-<hr />
-<br />
-<a href="#top">Go To Top</a>
+      var song=getRandomInt(1,4);
+      var card=getRandomInt(1111111111111111, 9999999999999999);
+      var url="https://docs.google.com/forms/d/1Wffqkkg0IKvuxL3EDk2bX65xoDUqREaffomqMjF-us4/viewform?c=0&w=1 "+song+"&entry.1471340895="+card+ "&submit=Submit";
+       
+       $.ajax({
+       url: url,
+
+       error:function(){
+       alert("ERROR");
+       },
+
+       success: function(data){
+       $("#div1").append(data);
+       },
+       type:"POST"
+       });
+
+      });
+    });
+
+    function getRandomInt(min, max){
+    return Math.floor(Math.random()*(max-min+1)) +min;
+    }
+    </script>
+    <style>
+
+      button{
+         width:200px;
+         height:200px;
+       }
+    </style>
+    </head>
+    <body>
+    <div align="center">
+         <button id="button3">AJAX POST</button>
+         <div id="div1"></div>
+    </div>
+    </body>
+    </html>
  
-
-</body>
-</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body ng-app="explorifyApp">
+<div class="container" ng-controller="myController">
+	<h1 align="center">Explorify</h1>
+	<br><br>
+	
+	<p><input type="text" ng-model="name">
+	<span class="glyphicon glyphicon-search"></span> Filter Results
+	</input>
+	</p>
+	<table class="table table-striped">
+		<thead>
+		<tr>
+		  <th>ID</th>    
+		  <th>Place</th>
+		  <th>Category</th>
+		  <th>Address</th>
+		  <th>Phone</th>
+		  <th>Timings</th>
+		</tr>
+		</thead>
+		<tbody>
+				<tr ng-repeat="poi in placesOfInterest | filter:name">
+				    <td>{{poi.id}}</td>		
+					<td>{{ poi.place }}</td>
+					<td>{{ poi.category }}</td>
+					<td>{{ poi.address }}</td>
+					<td>{{ poi.phone }}</td>
+					<td>{{ poi.timings }}</td>
+					
+					<!--Edit Button-->
+					<td>
+					<button class="btn" ng-click="editPlace($index)">
+					<span class="glyphicon glyphicon-pencil"></span>  Edit
+					</button>
+					</td>
+					<!--Edit Button-->
+					
+					<!--Delete Button-->
+					<td>
+					<button class="btn" ng-click="deletePlace(poi)" style="color:red">
+					<span class="glyphicon glyphicon-trash"></span>  Delete  
+					</button>
+					</td>
+					<!--Delete Button-->
+					
+					<!--Map Button-->
+					<td>
+					<button class="btn" ng-click="showMap(poi)">
+					<span class="glyphicon glyphicon-map-marker"></span>  Map
+					</button>
+					</td>
+					<!--Map Button-->
+				</tr>
+		</tbody>
+    </table>
+
+	<hr>
+	<button class="btn btn-success" ng-click="addPlace()">
+	<span class="glyphicon glyphicon-plus"></span>  Add New Location
+	</button>
+	<hr>
+	
+<h3 ng-show="edit">Add New Location:</h3>
+<h3 ng-hide="edit">Edit Details:</h3>
+
+<form class="form-horizontal">
+  <!--ID Label-->
+  <div class="form-group">
+    <label class="col-sm-2 control-label"> ID:</label>
+    <div class="col-sm-10">
+		<input type="text" ng-model="newId"  placeholder="ID">
+    </div>
+  </div>
+  <!--ID Label-->
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label"> Place:</label>
+    <div class="col-sm-10">
+		<input type="text" ng-model="newPlace"  placeholder="Place">
+    </div>
+  </div> 
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Category:</label>
+    <div class="col-sm-10">
+    <input type="text" ng-model="newCategory" placeholder="Category">
+	 <input type="hidden" ng-model="temp_id"
+    </div>
+  </div>
+  
+  <br><br>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label"> Address:</label>
+    <div class="col-sm-10">
+		<input type="text" id="addTB" ng-model="newAddress"  placeholder="Address">
+    </div>
+  </div> 
+
+  <br><br>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label"> Phone:</label>
+    <div class="col-sm-10">
+		<input type="text" ng-model="newPhone"  placeholder="Phone">
+    </div>
+  </div> 
+  
+  <br><br>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label"> Timings:</label>
+    <div class="col-sm-10">
+		<input type="text" ng-model="newTimings"  placeholder="Timings">
+    </div>
+  </div> 
+</form>
+
+<hr>
+<button class="btn btn-success" ng-disabled="false" ng-click="saveEditChanges()">
+<span class="glyphicon glyphicon-ok"></span>  Save Changes
+</button>
+
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src= "explorifyApp.js"></script>
+</div> <!-- Container div ends-->
+</body>
+</html>

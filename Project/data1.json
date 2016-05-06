@@ -1,0 +1,192 @@
+{ "placesOfInterest":[
+	{
+	   "place":"Coyote Hills Regional Park",
+	   "category":"Hiking",
+	   "address":"8000 Patterson Ranch Rd., Fremont, CA-94555",
+	   "phone":"5105443220",
+	   "timings":"8am-6pm",
+	   "id":1
+	   
+	},
+	
+	{
+	   "place":"Mission Peak Regional Park",
+	   "category":"Hiking",
+	   "address":"Mission Peak Trail, Fremont, CA",
+	   "phone":"5105443246",
+	   "timings":"7am-6pm",
+	   "id":2
+	   
+	},
+	
+	{
+	   "place":"The Walt Disney Family Museum",
+	   "category":"Theatre Museum",
+	   "address":"104 Montgomery St, San Francisco, CA 94129",
+	   "phone":"4153456800",
+	   "timings":"10am–6pm",
+	   "id":3
+	   
+	},
+	
+	{
+	   "place":"San Francisco Cable Car Museum",
+	   "category":"Historical Museum",
+	   "address":"1201 Mason St, San Francisco, CA 94108",
+	   "phone":"4154741887",
+	   "timings":"10am–5pm",
+	   "id":4
+	   
+	},
+	
+	{
+	   "place":"The Golden Gate Bridge",
+	   "category":"Historic Location",
+	   "address":"Golden Gate Bridge, California",
+	   "phone":"N/A",
+	   "timings":"N/A",
+	   "id":5
+	   
+	},
+	
+	{
+	   "place":"Chinatown",
+	   "category":"Shopping/Culture",
+	   "address":"Chinatown, San Francisco, California",
+	   "phone":"N/A",
+	   "timings":"N/A",
+	   "id":6
+	   
+	},
+	
+	{
+	   "place":"California's Great America",
+	   "category":"Amusement Park",
+	   "address":" 4701 Great America Pkwy, Santa Clara, CA 95054",
+	   "phone":"N/A",
+	   "timings":"N/A",
+	   "id":7
+	   
+	},
+	
+	{
+	   "place":"Ghirardelli Square",
+	   "category":"Culture/Shopping",
+	   "address":"900 North Point St, San Francisco, CA 94109",
+	   "phone":"415) 775-5500",
+	   "timings":"6AM–12AM",
+	   "id":8
+	   
+	},
+	
+	{
+	   "place":"The Twin Peaks",
+	   "category":"Cityscape View/Hiking",
+	   "address":"501 Twin Peaks Blvd, San Francisco, CA 94114",
+	   "phone":" (415) 831-6331",
+	   "timings":"Open 24 hours",
+	   "id":9
+	   
+	},
+	
+	{
+	   "place":"Downtown San Jose",
+	   "category":"Music/Nightlife/Concerts/Shopping",
+	   "address":"Downtown San Jose, California",
+	   "phone":"N/A",
+	   "timings":"N/A",
+	   "id":10
+	   
+	},
+	
+	{
+	   "place":"Pier 39",
+	   "category":"Culture/Nightlife",
+	   "address":"Pier 39, San Francisco, California",
+	   "phone":"N/A",
+	   "timings":"N/A",
+	   "id":11
+	   
+	},
+	
+	{
+	   "place":"Hangar Bar & Grill",
+	   "category":"Sports Bar",
+	   "address":"1471 N 4th St., San Jose, CA 95112 ",
+	   "phone":"(408) 452-0200 ",
+	   "timings":"6am-10pm",
+	   "id":12
+	   
+	},
+	
+	{
+	   "place":"Temple Bar & Lounge",
+	   "category":"Dance Club/Pub",
+	   "address":"52 S 1st St., San Jose, CA 95113 ",
+	   "phone":"(408) 471-8675",
+	   "timings":"8:30pm-2am",
+	   "id":13
+	   
+	},
+	
+	{
+	   "place":" O’Flaherty’s Irish Pub",
+	   "category":"Pubs",
+	   "address":"25 N San Pedro St.,San Jose, CA 95110 ",
+	   "phone":"(408) 947-8007",
+	   "timings":"11am-2am",
+	   "id":14
+	   
+	},
+	
+	{
+	   "place":"The Counter",
+	   "category":"Restaurant/Cafe",
+	   "address":"39350 Paseo Padre Pkwy, Fremont, CA 94538",
+	   "phone":"5107968800",
+	   "timings":"11:00 am - 11:00 pm",
+	   "id":15
+	   
+	},
+	
+	{
+	   "place":" Great Mall ",
+	   "category":"Shopping",
+	   "address":"447 Great Mall Dr.,Milpitas, CA 95035",
+	   "phone":"4089454022 ",
+	   "timings":"10:00 am - 9:00 pm",
+	   "id":16
+	   
+	},
+	
+	{
+	   "place":"Century At Pacific Commons",
+	   "category":"Movie Theatre",
+	   "address":"43917 Pacific Commons Blvd.,Fremont, CA",
+	   "phone":"(800) 326-3264",
+	   "timings":"9am-10:30pm",
+	   "id":17
+	   
+	},
+	
+	{
+	   "place":"Golden Gate Park",
+	   "category":"Garden/Hiking/Trail/Museum/Festivals",
+	   "address":"Golden Gate Park, San Francisco, California",
+	   "phone":"N/A",
+	   "timings":"Open 24 hours",
+	   "id":18
+	   
+	},
+	
+	{
+	   "place":"Panera Bread ",
+	   "category":"Restaurant/Cafe",
+	   "address":" 43305 Christy St, Fremont, CA 94538 ",
+	   "phone":"(510) 440-7020",
+	   "timings":"7:00 am - 9:00 pm",
+	   "id":19
+	   
+	}
+]
+}
