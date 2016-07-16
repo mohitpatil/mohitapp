@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>My Embed Button</title>
+
+
+
+<style>
+     #div1{
+         float: left;
+         margin-left: 175px;
+         display: inline-block;
+         background-color: black;
+         font-family: "sans-serif", "Times New Roman", "Courier New";
+         padding: 10px;
+         width: 70%;
+         color: red;
+     }
+     #div2{
+        background-color: grey;
+         width: 50px;
+         height: 50px;
+     }
+     #div3{
+        display: inline-block;
+        width: 70%;
+        margin-left: 175px;
+        padding:10px;
+     }
+    #info{
+        font-family: "sans-serif","Times New Roman","Courier New";
+        transition: opacity,0.2s;
+        opacity: 0.97;
+        position: absolute;
+        right: 158px;
+        top: 97px;
+        z-index: 2;
+
+    }
+     textarea {
+         font-family: "Balto", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+         padding: 5px;
+         border-bottom: 3px solid #e5e5e5;
+         overflow: auto;
+         color: royalblue;
+         vertical-align: top;
+         background-color: whitesmoke;
+     }
+    .btn-info {
+        float: right;
+        min-width: 100px;
+        max-width: 100px;
+        width: 100px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 12px;;
+    }
+
+</style>
+</head>
+
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <header>
+            <div id="div1">
+                 <h2 align="center" id="article-name">Katie Pavlich: Obamas anti-police ideology</h2>
+                <button type="button" class="btn btn-info" data-lang="en" ng-click="myFunc()">Fiskkbed It..!!</button>
+                <span ng-hide="embedtext">
+
+                    <textarea type="text" id="info" rows="4" ng-model="url">{{url}}</textarea>
+
+                </span>
+                <span ng-show="embedtext">
+                </span>
+            </div>
+    </header>
+
+        <div class="jumbotron"  id="div3">
+        <p>As President Obama starts to wind down his tenure in the White House,
+            with just a year and a half to go, he’s focusing on federalization of local police forces in the name of “justice.”
+        </p>
+        <p>Attorney General Loretta Lynch will be his go-to on this project, just as Eric Holder was before her.
+        </p>
+        <p>
+            The goal, according to the White House and Department of Justice,
+            is to take a close look at police practices across the country to ensure minorities,
+            in particular African-Americans, aren’t unfairly singled out for police scrutiny.
+        </p>
+        <p>
+            It all started way back in 2009 when Obama, before he knew all of the facts,
+            accused the police of “acting stupidly” after his friend, Harvard Professor Henry Gates,
+            was briefly arrested for breaking into his home
+        </p>
+        <p>
+        “I don’t know, not having been there and not seeing all the facts, what role race played,” the president said at the time. “But I think it’s fair to say, No. 1, any of us would be pretty angry; No. 2, that the Cambridge police acted stupidly in arresting somebody when there was already proof that they were in their own home; and, No. 3 ... that there’s
+        a long history in this country of African-Americans and Latinos being stopped by law enforcement disproportionately.”
+        </p>
+        </div>
+    </div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.showMe = false;
+        $scope.embedtext =true;
+        $scope.myFunc = function() {
+            $scope.embedtext = $scope.embedtext === false ? true : false;
+            $scope.url= '<a href="' + window.location.href+'">' + document.getElementById("article-name").innerHTML +"</a>";
+        };
+    });
+</script>
